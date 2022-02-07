@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./styles.css";
 
 const disapply = () => {
@@ -8,17 +8,21 @@ const disapply = () => {
 function Example() {
   const [count, setCount] = useState(0);
   const [onOff, setOnOff] = useState(false);
+  const ref = useRef(100);
 
   // componentDidMount, componentDidUpdate와 비슷합니다
   useEffect(() => {
     // 브라우저 API를 이용해 문서의 타이틀을 업데이트합니다
     document.title = `You clicked ${count} times`;
+    // console.log(`You clicked ${count} times`);
   });
 
   const increaseCount = () => {
     setCount(count + 1);
     setOnOff(!onOff);
   };
+
+  console.log(`ref : ${ref.current}`);
 
   return (
     <div>
